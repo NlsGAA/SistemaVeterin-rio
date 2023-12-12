@@ -1,0 +1,31 @@
+body {
+    background: radial-gradient(#dcf 5%, #abc 100%);
+}
+
+fieldset{
+    width: fit-content;
+    border-radius: 10px;
+    margin: auto;
+    background-color: #ddd;
+}
+
+legend{
+    font-size: 25px;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+label {
+    font-size: 20px;
+}
+
+input{
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+::placeholder{
+    font-size: 15px;
+    letter-spacing: 1px;
+}

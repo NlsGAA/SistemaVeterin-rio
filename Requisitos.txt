@@ -1,0 +1,32 @@
+Ficha técnica {
+    nome,
+    raça, 
+    espécie, 
+    peso, 
+    coloração, 
+    idade, 
+    procedência
+}
+
+//
+<?php
+
+    include('input.php');
+
+if($_COOKIE['nomeFichaTecnica']){
+
+    echo '<h2>'. $_COOKIE['nomeFichaTecnica'].'</h2>';
+    echo '<h2>'. $_COOKIE['racaFichaTecnica'].'</h2>';
+    echo '<h2>'. $_COOKIE['especieFichaTecnica'].'</h2>';
+    echo '<h2>'. $_COOKIE['pesoFichaTecnica'].'</h2>';
+    echo '<h2>'. $_COOKIE['coloracaoFichaTecnica'].'</h2>';
+    echo '<h2>'. $_COOKIE['idadeFichaTecnica'].'</h2>';
+    echo '<h2>'. $_COOKIE['procedenciaFichaTecnica'].'</h2>';
+
+}else{
+    header('Location: fichaTec.html');
+    exit;
+}
+
+?>
+//
