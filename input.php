@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+    include_once('conexao.php');
+
 
     $nome = filter_input(INPUT_POST, 'nome');
     $raca = filter_input(INPUT_POST, 'raca');
@@ -9,15 +13,15 @@
     $procedencia = filter_input(INPUT_POST, 'procedencia');
 
 
-if($nome && $raca && $especie && $peso && $coloracao && $idade && $procedencia){
+$result_ficha = "INSERT INTO registros_fichatec (nome, raca, especie, peso, coloracao, idade, procedencia, created) VALUES ('$nome', '$raca', '$especie', '$peso', '$coloracao', '$idade', '$procedencia', NOW())";
+$resultado_ficha = mysqli_query($conn ,$result_ficha);
 
-    setcookie('nomeFichaTecnica', $nome, time() + (86400 * 30000));
-    setcookie('racaFichaTecnica', $raca, time() + (86400 * 30000));
-    setcookie('especieFichaTecnica', $especie, time() + (86400 * 30000));
-    setcookie('pesoFichaTecnica', $peso, time() + (86400 * 300000));
-    setcookie('coloracaoFichaTecnica', $coloracao, time() + (86400 * 30000));
-    setcookie('idadeFichaTecnica', $idade, time() + (86400 * 300000));
-    setcookie('procedenciaFichaTecnica', $procedencia, time() + (86400 * 30000));
-
-    header('Location: registros.php');
-};
+if(mysqli_insert_id($conn)){
+    $_SESSION['msg'] = "<p style='color: green;'>Ficha técnica cadastrada com sucesso!</p>";
+    header('Location: fichaTec.php');
+    exit;
+}else{  
+    $_SESSION['msg'] = "<p style='color: red;'Ficha técnica não foi cadastrada com sucesso!</p>";
+    header('Location: fichaTec.php');
+    exit;
+}

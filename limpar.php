@@ -8,4 +8,4 @@ setcookie('coloracaoFichaTecnica', '', time() + (-86400 * 300000));
 setcookie('idadeFichaTecnica', '', time() + (-86400 * 300000));
 setcookie('procedenciaFichaTecnica', '', time() + (-86400 * 300000));
 
-header('Location: fichaTec.html');
+header('Location: fichaTec.php');

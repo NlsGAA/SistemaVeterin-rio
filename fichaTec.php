@@ -1,3 +1,7 @@
+<?php
+        session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,13 @@
 </head>
 <body>
     
+    <?php
+        if($_SESSION['msg']){
+            echo $_SESSION['msg'];
+            unset ($_SESSION['msg']);
+        }
+    ?>
+
     <form method="POST" action="input.php">
         <fieldset>
         
