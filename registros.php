@@ -37,7 +37,8 @@
         while($row_user = mysqli_fetch_assoc($resultado_ficha)){
             echo "Id:".$row_user['id']."<br>";
             echo "Nome:".$row_user['nome']."<br>";
-            echo "Raça:".$row_user['raca']."<br><hr>";
+            echo "Raça:".$row_user['raca']."<br>";
+            echo "<a href='editar.php?id=".$row_user['id']."'>Editar</a><br><hr>";
         }
 
         //Paginação - Somar a quantidade de usuários 
