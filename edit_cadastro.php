@@ -25,3 +25,4 @@ if(mysqli_affected_rows($conn)){
     header("Location: editar.php?id=$id");
     exit;
 }
+

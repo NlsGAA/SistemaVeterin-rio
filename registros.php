@@ -38,7 +38,8 @@
             echo "Id:".$row_user['id']."<br>";
             echo "Nome:".$row_user['nome']."<br>";
             echo "Raça:".$row_user['raca']."<br>";
-            echo "<a href='editar.php?id=".$row_user['id']."'>Editar</a><br><hr>";
+            echo "<a href='editar.php?id=".$row_user['id']."'>Editar</a><br>";
+            echo "<a href='apagar_cadastro.php?id=".$row_user['id']."'>Apagar</a><br><hr>";
         }
 
         //Paginação - Somar a quantidade de usuários 
