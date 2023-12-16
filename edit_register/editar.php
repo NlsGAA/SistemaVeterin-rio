@@ -1,6 +1,6 @@
 <?php
         session_start();
-        include_once('conexao.php');
+        include_once('../server_connection/conexao.php');
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $result_edit = "SELECT * FROM registros_fichatec WHERE id = '$id'";
         $resultado_edit = mysqli_query($conn, $result_edit);

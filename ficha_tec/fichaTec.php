@@ -19,7 +19,7 @@
         }
     ?>
 
-    <form method="POST" action="input.php">
+    <form method="POST" action="../include_register/input.php">
         <fieldset>
         
             <legend>Ficha Técnica</legend>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once('conexao.php');
+    include_once('../server_connection/conexao.php');
 
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     if(!empty($id)){
@@ -9,15 +9,15 @@
     
         if(mysqli_affected_rows($conn)){
             $_SESSION['msg'] = "<p style='color: green;'>Ficha técnica excluída com sucesso!</p>";
-            header('Location: registros.php');
+            header('Location: ../registers/registros.php');
             exit;
         }else{  
             $_SESSION['msg'] = "<p style='color: red;'Ficha técnica não foi excluída com sucesso!</p>";
-            header('Location: registros.php');
+            header('Location: ../registers/registros.php');
             exit;
         }
     }else{
         $_SESSION['msg'] = "<p style='color: red;'ID não localizado!</p>";
-        header('Location: registros.php');
+        header('Location: ../registers/registros.php');
         exit;
     }

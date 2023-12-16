@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-    include_once('conexao.php');
+    include_once('../server_connection/conexao.php');
 
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $nome = filter_input(INPUT_POST, 'nome');
@@ -18,11 +18,11 @@ $resultado_ficha = mysqli_query($conn ,$result_ficha);
 
 if(mysqli_affected_rows($conn)){
     $_SESSION['msg'] = "<p style='color: green;'>Ficha técnica editada com sucesso!</p>";
-    header('Location: registros.php');
+    header('Location: ../registers/registros.php');
     exit;
 }else{  
     $_SESSION['msg'] = "<p style='color: red;'Ficha técnica não foi editada com sucesso!</p>";
-    header("Location: editar.php?id=$id");
+    header("Location: ./editar.php?id=$id");
     exit;
 }
 

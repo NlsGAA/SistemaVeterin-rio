@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-    include_once('conexao.php');
+    include_once('../server_connection/conexao.php');
 
 
     $nome = filter_input(INPUT_POST, 'nome');
@@ -18,10 +18,10 @@ $resultado_ficha = mysqli_query($conn ,$result_ficha);
 
 if(mysqli_insert_id($conn)){
     $_SESSION['msg'] = "<p style='color: green;'>Ficha técnica cadastrada com sucesso!</p>";
-    header('Location: registros.php');
+    header('Location: ../registers/registros.php');
     exit;
 }else{  
     $_SESSION['msg'] = "<p style='color: red;'Ficha técnica não foi cadastrada com sucesso!</p>";
-    header('Location: fichaTec.php');
+    header('Location: ../ficha_tec/fichaTec.php');
     exit;
 }
