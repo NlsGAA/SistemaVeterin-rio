@@ -9,24 +9,22 @@ Ficha técnica {
 }
 
 //
-<?php
 
-    include('input.php');
-
-if($_COOKIE['nomeFichaTecnica']){
-
-    echo '<h2>'. $_COOKIE['nomeFichaTecnica'].'</h2>';
-    echo '<h2>'. $_COOKIE['racaFichaTecnica'].'</h2>';
-    echo '<h2>'. $_COOKIE['especieFichaTecnica'].'</h2>';
-    echo '<h2>'. $_COOKIE['pesoFichaTecnica'].'</h2>';
-    echo '<h2>'. $_COOKIE['coloracaoFichaTecnica'].'</h2>';
-    echo '<h2>'. $_COOKIE['idadeFichaTecnica'].'</h2>';
-    echo '<h2>'. $_COOKIE['procedenciaFichaTecnica'].'</h2>';
-
-}else{
-    header('Location: fichaTec.html');
-    exit;
-}
-
-?>
-//
+Cod fichaTec
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            echo '<h5 class="card-title">(Name)</h5>';
+            echo '<p class="card-text">Alguma informação</p>';
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Raça: ???</li>
+            <li class="list-group-item">Peso: ???</li>
+            <li class="list-group-item">Idade: ???</li>
+            </ul>
+            <div class="card-body">
+            <a href="#" class="card-link">Detalhado</a>
+            <a href="#" class="card-link">Another link</a>
+            ?>
+          </div>
+        </div>

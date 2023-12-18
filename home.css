@@ -1,0 +1,17 @@
+nav{
+    margin-bottom: 100px;
+}
+
+.dropdown-item:hover{
+    background-color: lightpink;
+}
+
+li{
+    font-size: 19px;
+    padding: 5px;
+}
+
+.card-animals{ 
+    display: flex;
+    flex-direction: row;
+}
