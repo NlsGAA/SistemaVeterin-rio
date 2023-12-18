@@ -14,4 +14,12 @@ li{
 .card-animals{ 
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+#redirect-button{ 
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

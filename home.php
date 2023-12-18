@@ -57,40 +57,41 @@
             $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
     
             //Setar a quantidade de itens por página
-            $qt_result_pg = 3;
+            $qt_result_pg = 4;
     
             //Cálcular o inicio de visualização
             $inicio = ($qt_result_pg * $pagina) - $qt_result_pg;
     
             $result_ficha = "SELECT * FROM registros_fichatec LIMIT $inicio, $qt_result_pg";
             $resultado_ficha = mysqli_query($conn, $result_ficha);
-            while($row_user = mysqli_fetch_assoc($resultado_ficha)){
-    ?>
+            ?>
             <div class="card-animals">
               <?php
-                  echo '<div class="card-animals">';
-                  echo '<div class="card" style="width: 18rem;">';
-                  echo "<a href='edit_register/editar.php?id=".$row_user['id']."'>Editar</a>";
-                  echo "<a href='delete_register/apagar_cadastro.php?id=".$row_user['id']."'>Apagar</a>";
-                  echo '<img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                  <h5 class="card-title">'; echo $row_user['nome']."<br>"; echo '</h5>
-                  <p class="card-text">Alguma informação</p>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Raça:'; echo $row_user['raca']."<br>"; echo '</li>
-                    <li class="list-group-item">Peso:'; echo $row_user['peso']."<br>"; echo '</li>
-                    <li class="list-group-item">Idade:'; echo $row_user['idade']."<br>"; echo '</li>
-                    </ul>
+                while($row_user = mysqli_fetch_assoc($resultado_ficha)){
+                    echo '<div class="card-animals">';
+                    echo '<div class="card" style="width: 18rem;">';
+                    echo "<a href='edit_register/editar.php?id=".$row_user['id']."'>Editar</a>";
+                    echo "<a href='delete_register/apagar_cadastro.php?id=".$row_user['id']."'>Apagar</a>";
+                    echo '<img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                    <a href="registers/registros.php" class="card-link">Detalhado</a>
-                    <a href="#" class="card-link">Another link</a>
-                  </div>
-                </div>';
-                echo '</div>';
-              }
+                    <h5 class="card-title">'; echo $row_user['nome']."<br>"; echo '</h5>
+                    <p class="card-text">Alguma informação</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Raça:'; echo $row_user['raca']."<br>"; echo '</li>
+                      <li class="list-group-item">Peso:'; echo $row_user['peso']."<br>"; echo '</li>
+                      <li class="list-group-item">Idade:'; echo $row_user['idade']."<br>"; echo '</li>
+                      </ul>
+                      <div class="card-body">
+                      <a href="registers/registros.php" class="card-link">Detalhado</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>';
+                  echo '</div>';
+                }
               ?>
             </div>
+        <div id="redirect-button">
         <?php
             //Paginação - Somar a quantidade de usuários 
             $result_pg = "SELECT COUNT(id) AS num_result FROM registros_fichatec";
@@ -102,10 +103,10 @@
     
             //Limitar os links antes e depois
             $max_links = 2;
-            echo "<br><br><a style='margin:7px;' href='registers/registros.php?pagina=1'><<";
+            echo "<a style='margin:7px;' href='registers/registros.php?pagina=1'><<";
             for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
                 if($pag_ant >= 1){
-                    echo "<br><br><a style='margin:7px;' href='registers/registros.php?pagina=$pag_ant'>$pag_ant";
+                    echo "<a style='margin:7px;' href='registers/registros.php?pagina=$pag_ant'>$pag_ant";
                 }
             }
             //Página atual
@@ -114,13 +115,14 @@
             //última pagina
             for($pag_post = $pagina + 1; $pag_post <= $pagina + $max_links; $pag_post++){
                 if($pag_post <= $quantidade_pg){
-                    echo "<br><br><a style='margin:7px;' href='registers/registros.php?pagina=$pag_post'>$pag_post";
+                    echo "<a style='margin:7px;' href='registers/registros.php?pagina=$pag_post'>$pag_post";
                 }
             }
-            echo "<br><br><a style='margin:7px;' href='registers/registros.php?pagina=$quantidade_pg'>>>";
+            echo "<a style='margin:7px;' href='registers/registros.php?pagina=$quantidade_pg'>>>";
             
 
         ?>  
+        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
